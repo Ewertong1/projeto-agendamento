@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Consulta de Total de Agendamentos por Solicitante</title>
+</h:head>
+<h:body>
+	<h:form id="formConsultaTotalAgendamentos">
+		<p:panel header="Consulta do Total de Agendamentos por Solicitante"
+			style="margin-bottom:20px;">
+			<h:panelGrid columns="2" cellpadding="5">
+
+				<h:outputLabel for="dataInicio" value="Data Início: *" />
+				<p:calendar id="dataInicio" value="#{agendamentoBean.inicio}"
+					pattern="dd/MM/yyyy" required="true" showButtonPanel="true"
+					navigator="true" locale="pt_BR" />
+
+				<h:outputLabel for="dataFim" value="Data Fim: *" />
+				<p:calendar id="dataFim" value="#{agendamentoBean.fim}"
+					pattern="dd/MM/yyyy" required="true" showButtonPanel="true"
+					navigator="true" locale="pt_BR" />
+
+				<h:outputLabel for="solicitante" value="Solicitante: *" />
+				<p:autoComplete id="solicitante"
+					value="#{agendamentoBean.solicitanteSelecionado}"
+					completeMethod="#{agendamentoBean.sugerirSolicitantes}" var="s"
+					itemLabel="#{s.nome}" itemValue="#{s}" forceSelection="true"
+					dropdown="true" converter="#{agendamentoBean.solicitanteConverter}" />
+
+				<h:outputLabel />
+				<p:commandButton value="Consultar"
+					action="#{agendamentoBean.consultarTotalAgendamentos}"
+					update="formConsultaTotalAgendamentos:dataTableAgendamentos" />
+			</h:panelGrid>
+		</p:panel>
+
+		<p:dataTable id="dataTableAgendamentos"
+			value="#{agendamentoBean.listaResumoAgendamentos}" var="resumo"
+			style="margin-top:20px" emptyMessage="Nenhum agendamento encontrado">
+			<p:column headerText="Solicitante">
+				<h:outputText value="#{resumo.nomeSolicitante}" />
+			</p:column>
+			<p:column headerText="Total de Agendamentos">
+				<h:outputText value="#{resumo.totalAgendamentos}" />
+			</p:column>
+			<p:column headerText="Qtde Vagas">
+				<h:outputText value="#{resumo.totalVagas}" />
+			</p:column>
+			<p:column headerText="Percentual">
+				<h:outputText value="#{resumo.percentual}%" />
+			</p:column>
+		</p:dataTable>
+		<div class="back-button-container">
+			<p:button value="Voltar" icon="pi pi-arrow-left"
+				outcome="/index.xhtml" styleClass="ui-button-secondary" />
+		</div>
+	</h:form>
+</h:body>
+</html>

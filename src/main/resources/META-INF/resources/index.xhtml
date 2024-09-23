@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Página Inicial</title>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		integrity="sha512-Fo3rlrZj/k7ujTnHg4CgrXx..." />
+	<style>
+body {
+	background-color: #f0f2f5; /* Cor de fundo suave */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+
+.menu-container {
+	background-color: #ffffff; /* Fundo branco para o menu */
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.menu-container h1 {
+	color: #f6a319; /* Cor do título */
+	margin-bottom: 20px;
+}
+
+.menu-container img {
+	width: 150px; /* Ajuste o tamanho da logo */
+	margin-bottom: 20px;
+	margin-left: 35%;
+}
+
+.menu-container .menu {
+	width: 100%;
+}
+
+.menu-container .menu p\\:menuitem {
+	background-color: #f6a319; /* Cor de fundo dos itens do menu */
+	color: #fff; /* Cor do texto */
+	padding: 10px;
+	margin: 5px 0;
+	border-radius: 4px;
+	transition: background-color 0.3s;
+	display: flex;
+	align-items: center;
+}
+
+.menu-container .menu p\\:menuitem:hover {
+	background-color: #d48613; /* Cor ao passar o mouse */
+}
+
+.menu-container .menu p\\:menuitem .ui-icon {
+	margin-right: 10px;
+}
+
+.footer-text {
+	margin-top: 20px;
+	font-size: 0.9em;
+	color: #666;
+}
+</style>
+</h:head>
+<h:body>
+	<div class="menu-container">
+		<img
+			src="https://logone.com.br/wp-content/uploads/sites/28/2022/01/small-logo-white.png"
+			alt="Company Logo" />
+		<h1>Bem-vindo ao Sistema</h1>
+		<h:form id="formPrincipal">
+			<p:menu class="menu">
+				<p:menuitem value="Cadastro de Vagas" icon="fas fa-briefcase"
+					outcome="cadastroVagas" />
+				<p:menuitem value="Cadastro de Solicitantes" icon="fas fa-user"
+					outcome="cadastroSolicitantes" />
+				<p:menuitem value="Cadastrar Novo Agendamento"
+					icon="fas fa-plus-circle" outcome="cadastroAgendamentos" />
+				<p:menuitem value="Consulta de Agendamentos"
+					icon="fas fa-calendar-check" outcome="consultarAgendamentos" />
+				<p:menuitem value="Busca Avançada por Solicitante"
+					icon="fas fa-search" outcome="consultaTotalSolicitante" />
+			</p:menu>
+		</h:form>
+		<div class="footer-text">Selecione uma das opções no menu.</div>
+	</div>
+</h:body>
+</html>
