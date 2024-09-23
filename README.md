@@ -1,3 +1,4 @@
+
 Projeto de Agendamento
 
 Este projeto foi desenvolvido para fornecer um sistema de agendamento com cadastro de vagas, solicitantes e agendamentos. A aplicação foi construída utilizando tecnologias como Java, JSF (JavaServer Faces) com PrimeFaces, e Spring Boot. A base de dados utiliza o Hibernate para o mapeamento objeto-relacional.<br/>
@@ -57,8 +58,5 @@ mvn spring-boot:run
 
 Como Acessar o Sistema
 Acesse http://localhost:9292/index.xhtml para visualizar a página inicial e acessar as funcionalidades do sistema.
-
-
-
 
 
